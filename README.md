@@ -6,7 +6,7 @@ The Trigger Handler class is an extendable class that handles the setup code tha
 
 ### 2. Implementation
 
-To be able to use the TriggerHandler framework, you need to create an APEX class that extends the `TriggerHandler` class
+To be able to use the TriggerHandler framework, you need to create an APEX class that extends the `TriggerHandler` class. The class name you create should have a descriptive name since that name will be used as the Custom metadata record identifier. An example of a relevant name is `AccountTriggerHandler`. This name is effective since it has the sObject name that the trigger gets attached to.
 
 ```apex
 public class <className> extends TriggerHandler {
