@@ -13,7 +13,7 @@ public class <className> extends TriggerHandler {
 }
 ```
 
-You will be able to add logic to your trigger events by overriding specific methods from the `TriggerHandler` class. The example below runs a field update to a custom rating field based on Scoring fiends. There are 4 data set variables that are inherited from the `TriggerHandler` class namely `newList`, `oldList`,`newMap`, and `oldMap` which can be directly used within the override methods.
+You will be able to add logic to your trigger events by overriding specific methods from the `TriggerHandler` class. The example below runs a field update to a custom rating field based on Scoring fiends. There are 4 data set variables that are inherited from the `TriggerHandler` class namely `newList`, `oldList`,`newMap`, and `oldMap` which can be directly used within the override methods. The overrideable methods are `void beforeInsert()`, `void beforeUpdate()`, `void beforeDelete()`, `void afterInsert()`, `void afterUpdate()`, `void afterDelete()`, `void afterUndelete()`,
 
 ```apex
 public class AccountTriggerHandler extends TriggerHandler {
