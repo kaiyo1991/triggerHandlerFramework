@@ -57,6 +57,7 @@ The `Trigger Handler Settings` Custom metadata type controls the trigger flow wh
 
 
 ### 5. Roadmap
+-Test class coverage for base classes
 
 -Multi-catch exception logging mechanism through Platform events
 
