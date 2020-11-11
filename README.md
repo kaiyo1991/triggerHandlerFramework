@@ -1,10 +1,10 @@
 # Trigger Handler Framework
 
-### 1. Trigger Handler - Introduction
+### 1. Introduction
 
 The Trigger Handler class is an extendable class that handles the setup code that you have to do when setting up a trigger. It allows for overriding of methods to handle the trigger event currently being executed, creates a breadcrumb logging mechanism to allow developers to easily trace the code, and allows for logging of apex limits and usage per event to give the developers an idea of how their trigger event is performing. It also creates a metadata record for every class extending the `TriggerHandler` class which allows users to easily disable trigger logic per given event.
 
-### 2. Trigger Handler - Implementation
+### 2. Implementation
 
 To be able to use the TriggerHandler framework, you need to create an APEX class that extends the `TriggerHandler` class
 
@@ -29,7 +29,7 @@ public class AccountTriggerHandler extends TriggerHandler {
 }
 ```
 
-### 3. Trigger Handler - Sample Code
+### 3. Sample Code
 
 Sample trigger implementation on the account object. Adding all events is optional - and while it is recommended to add only the events that your logic will handle, adding all events reduces code deployment effort if a new event needs to be added to production.
 ```java
@@ -51,6 +51,12 @@ public class AccountTriggerHandler extends TriggerHandler {
 }
 ```
 
-### 4. Trigger Handler - Updating the metadata
+### 4. Updating the metadata
 
 The `Trigger Handler Settings` Custom metadata type controls the trigger flow when using the `TriggerHandler` framework. Checkboxes are available per event which you can disable by setting the value to true. If a record does not exist for a specific trigger extension, a new record will be created on the first execution which defaults to globally active and logging enabled.
+
+
+### 5. Roadmap
+
+-Multi-catch exception logging mechanism through Platform events
+-Command Center app - a better UI interface hosted under Command Center to allow updating of metadata records and testing of trigger logic.
