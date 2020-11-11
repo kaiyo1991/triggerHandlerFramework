@@ -59,4 +59,5 @@ The `Trigger Handler Settings` Custom metadata type controls the trigger flow wh
 ### 5. Roadmap
 
 -Multi-catch exception logging mechanism through Platform events
+
 -Command Center app - a better UI interface hosted under Command Center to allow updating of metadata records and testing of trigger logic.
