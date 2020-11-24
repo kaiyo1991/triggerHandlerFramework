@@ -51,7 +51,7 @@ public class MetadataHandler implements Metadata.DeployCallback {
             'Authorization' => 'Bearer ' + UserInfo.getSessionID(),
             'Content-Type' => 'application/json'
         };
-        HttpResponse hr = CalloutHandler.call(endPoint, 'GET', calloutHeaders,null);
+        HttpResponse hr = CalloutEngine.call(endPoint, 'GET', calloutHeaders,null);
 
         Map<String,Object> resp = (Map<String,Object>) JSON.deserializeUntyped(hr.getBody());
         if(resp.containsKey('done') && resp.get('done') == true) {
@@ -59,14 +59,10 @@ public class MetadataHandler implements Metadata.DeployCallback {
                 List<Object> records = (List<Object>) resp.get('records');
                 for(Object o : records) {
                     Map<String,Object> respRecord = (Map<String,Object>) o;
-                    if(String.valueOf(respRecord.get('Id')) == jobId) {
-                        return String.valueOf(respRecord.get('Status'));
-                    }
+                    if(String.valueOf(respRecord.get('Id')) == jobId) return String.valueOf(respRecord.get('Status'));
                 }
             }
-        } else {
-            return 'pending';
-        }
+        } else return 'pending';
         return 'unknown';
     }
 
